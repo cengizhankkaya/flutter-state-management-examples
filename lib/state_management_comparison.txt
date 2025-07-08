@@ -1,0 +1,58 @@
+const String stateManagementComparison = '''
+
+# Flutter State Management Karşılaştırması
+
+## 1. setState
+- Flutter'ın kendi temel state yönetim mekanizmasıdır.
+- Sadece StatefulWidget içinde kullanılabilir.
+- Lokal ve geçici durumlar için uygundur.
+- Global state yönetimi için uygun değildir.
+- Öğrenmesi ve uygulaması çok kolaydır.
+
+## 2. Provider
+- Flutter ekosisteminin en popüler state management paketlerinden biridir.
+- State'i widget ağacında yukarıdan aşağıya kolayca paylaşır.
+- Orta ölçekli uygulamalar ve global state için uygundur.
+- notifyListeners() ile state güncellenir.
+- Test yazmak kolaydır.
+
+## 3. Riverpod
+- Provider'ın modern, daha güvenli ve esnek halidir.
+- Widget ağacından bağımsız olarak state'i yönetebilir.
+- Compile-time güvenlik ve otomatik bağımlılık yönetimi sağlar.
+- Büyük ve karmaşık uygulamalar için idealdir.
+- Asenkron ve parametreli state yönetimi çok kolaydır.
+
+## 4. Bloc
+- Event-Driven (olay tabanlı) ve reaktif bir yaklaşıma sahiptir.
+- State ve event'ler ayrı ayrı tanımlanır.
+- Kodun test edilebilirliğini ve yeniden kullanılabilirliğini artırır.
+- Büyük, kurumsal ve event tabanlı projeler için uygundur.
+
+## Karşılaştırmalı Tablo
+| Özellik         | setState         | Provider         | Riverpod         | Bloc              |
+|-----------------|------------------|------------------|------------------|-------------------|
+| Öğrenme Kolaylığı | Çok Kolay        | Kolay            | Orta             | Zor               |
+| Ekstra Paket    | Gerekmez         | Gerekli          | Gerekli          | Gerekli           |
+| Lokal State     | Evet             | Evet             | Evet             | Evet              |
+| Global State    | Hayır            | Evet             | Evet             | Evet              |
+| Asenkron State  | Hayır            | Kısıtlı          | Evet             | Evet              |
+| Test Edilebilirlik | Zor           | Orta             | Kolay            | Çok Kolay         |
+| Performans      | Yüksek (küçükte) | Yüksek           | Yüksek           | Yüksek            |
+| Widget Bağımlılığı | Yüksek         | Orta             | Düşük            | Düşük             |
+| Kod Karmaşıklığı | Düşük            | Orta             | Orta-Yüksek      | Yüksek            |
+| Büyük Proje     | Uygun Değil      | Orta             | Çok Uygun        | Çok Uygun         |
+
+## Kullanım Senaryoları
+- setState: Basit, lokal ve geçici durumlar için.
+- Provider: Orta ölçekli, state paylaşımı gerektiren uygulamalar için.
+- Riverpod: Büyük, karmaşık, test edilebilir ve asenkron state gerektiren projeler için.
+- Bloc: Çok büyük, kurumsal, event tabanlı ve temiz mimari isteyen projeler için.
+
+## Kısaca Kod Örnekleri
+- setState: setState(() { counter++; });
+- Provider: Provider.of<Counter>(context, listen: false).increment();
+- Riverpod: ref.read(counterProvider.notifier).state++;
+- Bloc: context.read<CounterBloc>().add(Increment());
+
+''';
