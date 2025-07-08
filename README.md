@@ -2,6 +2,13 @@
 
 Bu proje, Flutter'da `setState` metodunun nasıl kullanılacağını gösteren kapsamlı örnekler içerir.
 
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/b7db576b-ad00-4e34-83d5-4071181f074f" width="200" />
+  <img src="https://github.com/user-attachments/assets/76bf22c3-6a73-4e97-a1f9-bacc83839e7b" width="200" />
+  <img src="https://github.com/user-attachments/assets/c44e4a66-8d8b-434f-9687-1ec6832a15c9" width="200" />
+  <img src="https://github.com/user-attachments/assets/d77a8a47-a7df-4332-bf0a-5df94c3a0751" width="200" />
+</div>
+
 ## setState Metodu Nedir?
 
 `setState` metodu, Flutter'da StatefulWidget'ların durumunu güncellemek için kullanılan temel bir metoddur. Bu metod, widget'ın yeniden oluşturulmasını (rebuild) tetikler ve kullanıcı arayüzünün güncel durumu yansıtmasını sağlar.
@@ -140,6 +147,55 @@ void _unnecessarySetState() {
 - Büyük uygulamalar
 - Test edilebilirlik gerektiren projeler
 
+🟢 Provider
+
+Provider, Flutter ekibi tarafından önerilen basit ama etkili bir state management çözümüdür. ChangeNotifier sınıfı kullanılarak durum değişiklikleri yapılır.
+
+Örnekler:
+	•	Sayaç değeri artırma
+	•	Metin güncelleme
+	•	Listeye öğe ekleme
+	•	Yükleme durumunun takibi
+
+ 🔴 Riverpod
+
+Riverpod, Provider’ın daha güvenli, daha modüler ve daha esnek halidir. Test edilebilirliği yüksektir ve hata yapmayı zorlaştırır.
+
+Örnekler:
+	•	StateProvider ile sayaç kontrolü
+	•	AsyncValue ile yükleme ve hata kontrolü
+	•	Global erişimli durum yönetimi
+	•	Temiz kod mimarisiyle durum güncelleme
+
+ 🟣 BLoC (Business Logic Component)
+
+flutter_bloc paketi ile olay (event) ve durum (state) temelli bir yapı kurulur. Daha büyük projelerde tercih edilir. Katmanlı mimari ve test edilebilirlik avantajı sunar.
+
+Yapı:
+	•	Event sınıfları: Kullanıcı etkileşimlerini temsil eder
+	•	State sınıfları: UI’nin görüntüsünü temsil eder
+	•	Bloc sınıfı: İş mantığını yönetir ve uygun state’i yayar
+
+Örnekler:
+	•	Sayaç yönetimi (Increment/Decrement event’leri)
+	•	Metin veya renk güncelleme event’leri
+	•	Yükleme event’leri ve durum geçişleri
+
+
+ ✅ Hangi Durumda Hangi Yöntem?
+
+ Senaryo
+Önerilen Yöntem
+Basit sayaç, metin değişimi
+setState
+Küçük/orta ölçekli uygulama
+Provider
+Test yazmak, global state, daha güvenli yapı
+Riverpod
+Kurumsal projeler, event-driven yapı
+BLoC
+
+
 ## Projeyi Çalıştırma
 
 ```bash
@@ -149,16 +205,6 @@ flutter pub get
 # Uygulamayı çalıştırın
 flutter run
 ```
-
-## Katkıda Bulunma
-
-Bu projeye katkıda bulunmak için:
-
-1. Fork yapın
-2. Feature branch oluşturun (`git checkout -b feature/amazing-feature`)
-3. Değişikliklerinizi commit edin (`git commit -m 'Add amazing feature'`)
-4. Branch'inizi push edin (`git push origin feature/amazing-feature`)
-5. Pull Request oluşturun
 
 ## Lisans
 
